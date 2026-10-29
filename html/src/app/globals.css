@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #07120d;
+  --bg2: #0b1d15;
+  --card: #0f2219;
+  --text: #f4ecd6;
+  --muted: #a9b8a8;
+  --line: rgba(212, 175, 55, 0.22);
+  --gold: #d4af37;
+  --gold2: #f3d98a;
+  --green: #1f7a4d;
+  --overlay: rgba(4, 14, 9, 0.72);
+}
+html.light {
+  --bg: #f7f4ea;
+  --bg2: #ece6d3;
+  --card: #ffffff;
+  --text: #10261a;
+  --muted: #4f6357;
+  --line: rgba(31, 122, 77, 0.22);
+  --gold: #b8901f;
+  --gold2: #d4af37;
+  --green: #17633d;
+  --overlay: rgba(247, 244, 234, 0.6);
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); transition: background .4s, color .4s; }
+
+@keyframes kenburns {
+  0% { transform: scale(1.1) translate(0, 0); }
+  50% { transform: scale(1.25) translate(-3%, -2%); }
+  100% { transform: scale(1.1) translate(0, 0); }
+}
+@keyframes floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-14px) } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px) } to { opacity: 1; transform: none } }
+@keyframes spin { to { transform: rotate(360deg) } }
+@keyframes marquee { to { transform: translateX(-50%) } }
+@keyframes shine { to { background-position: 200% center } }
+
+.animate-kenburns { animation: kenburns 22s ease-in-out infinite; }
+.animate-floaty { animation: floaty 5s ease-in-out infinite; }
+.animate-fadeup { animation: fadeUp .9s ease-out both; }
+.animate-spin-slow { animation: spin 40s linear infinite; }
+.animate-marquee { animation: marquee 30s linear infinite; }
+.text-shine {
+  background: linear-gradient(90deg, var(--gold), var(--gold2), #3fbf7f, var(--gold));
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shine 4s linear infinite;
+}
